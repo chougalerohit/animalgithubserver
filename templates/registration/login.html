@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{%extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{%block baseblock %}
+<body>
+          <h1 align="center">Login Form</h1>
+          <form align="center" method="post">
+            {{form.as_p}}
+            {%csrf_token%}
+            <input type="submit" value="login">
+          </form>
+</body>
+{%endblock %}
+</html>

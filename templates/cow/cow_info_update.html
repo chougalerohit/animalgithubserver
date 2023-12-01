@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{%extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{%block baseblock %}
+<body>
+        <h1 align="center">Update Form</h1>
+        <form align="center" method="post">
+          {%csrf_token%}
+          Id : <input type="text" name="id" value="{{cow_obj.id}}">
+          <p></p>
+          Cow Name : <input type="text" name="name" value="{{cow_obj.name}}">
+          <p></p>
+          Milk : <input type="text" name="milk" value="{{cow_obj.milk}}">
+          <p></p>
+          color : <input type="text" name="color" value="{{cow_obj.color}}">
+          <p></p>
+          <input type="submit" value="Update">
+
+        </form>
+</body>
+{%endblock %}
+</html>

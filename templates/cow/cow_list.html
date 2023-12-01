@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{%extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+
+{%block baseblock %}
+<style>
+    table,th,td{
+        border: 1px solid black;
+        border-collapse:collapse;
+
+    }
+    th,td{
+    padding:10px;
+    }
+    table#alter tr:nth-child(even){
+    background-color:#eee;
+    }
+    table#alter tr:nth-child(odd){
+    background_color:#fff;
+    }
+    table#alter th {
+    color:white:
+    background-color:gray;
+    }
+    .button{
+    background-color:#808080;
+    color: #fff;
+    border-radius:5px;
+    padding:15px;
+    min-height:15px;
+    min-width: 100px;
+  }
+  .center {
+
+
+    text-align: center;
+    display: block;
+    margin : 0 auto;
+}
+
+}
+</style>
+<body>
+          <h1 align="center">Cow List</h1>
+          {% if cow_list %}
+          <table border="1" align="center" margin="auto">
+            <tr>
+              <th>Id</th>
+              <th>Cow Name</th>
+              <th>Milk</th>
+              <th>Color</th>
+            </tr>
+              {% for list in cow_list %}
+            <tr>
+              <td>{{list.id}}</td>
+              <td>{{list.name}}</td>
+              <td>{{list.milk}}</td>
+              <td>{{list.color}}</td>
+              <td><a href="/cow/update/{{list.id}}" class="button center">Update</a></td>
+              <td><a href="/cow/delete/{{list.id}}" class="button center">Delete</a></td>
+            </tr>
+              {%endfor%}
+          </table>
+          <br>
+          <div align="center" width="40">
+          <a href="/cow/form" class="button">Insert</a>
+          </div>
+            {%else%}
+            <p>Record not found...!</p>
+            {%endif%}
+
+</body>
+{%endblock %}
+</html>
